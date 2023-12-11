@@ -1,0 +1,264 @@
+[
+    {
+      "question": "Vilken planet är känd som 'den röda planeten'?",
+      "answers": [
+        { "text": "Jorden", "correct": "false" },
+        { "text": "Mars", "correct": "true" },
+        { "text": "Venus", "correct": "false" },
+        { "text": "Jupiter", "correct": "false" }
+      ]
+    },
+    {
+      "question": "Vilket är det största oceanen?",
+      "answers": [
+        { "text": "Indiska oceanen", "correct": "false" },
+        { "text": "Atlanten", "correct": "false" },
+        { "text": "Stilla havet", "correct": "true" },
+        { "text": "Södra ishavet", "correct": "false" }
+      ]
+    },
+    {
+      "question": "Vilket land är känt som 'det landet med det leende ansiktet'?",
+      "answers": [
+        { "text": "Thailand", "correct": "true" },
+        { "text": "Japan", "correct": "false" },
+        { "text": "Sydkorea", "correct": "false" },
+        { "text": "Indien", "correct": "false" }
+      ]
+    },
+    {
+      "question": "Vad kallas den största ögruppen i världen?",
+      "answers": [
+        { "text": "Hawaii", "correct": "false" },
+        { "text": "Maldiverna", "correct": "false" },
+        { "text": "Filippinerna", "correct": "false" },
+        { "text": "Indonesien", "correct": "true" }
+      ]
+    },
+    {
+      "question": "Vilket är det snabbaste havslevande djuret?",
+      "answers": [
+        { "text": "Sjöhäst", "correct": "false" },
+        { "text": "Bläckfisk", "correct": "false" },
+        { "text": "Sjölejon", "correct": "false" },
+        { "text": "Svärdfisk", "correct": "true" }
+      ]
+    },
+    {
+      "question": "Vilken är världens mest befolkade stad?",
+      "answers": [
+        { "text": "Karachi", "correct": "false" },
+        { "text": "Beijing", "correct": "false" },
+        { "text": "New Delhi", "correct": "false" },
+        { "text": "Tokyo", "correct": "true" }
+      ]
+    },
+    {
+      "question": "Vilket djur är känt för sina svarta och vita ränder?",
+      "answers": [
+        { "text": "Zebra", "correct": "true" },
+        { "text": "Leopard", "correct": "false" },
+        { "text": "Gepard", "correct": "false" },
+        { "text": "Tiger", "correct": "false" }
+      ]
+    },
+    {
+      "question": "Vilken är världens högsta byggnad?",
+      "answers": [
+        { "text": "Shanghai Tower", "correct": "false" },
+        { "text": "Burj Khalifa", "correct": "true" },
+        { "text": "One World Trade Center", "correct": "false" },
+        { "text": "Abraj Al Bait Clock Tower", "correct": "false" }
+      ]
+    },
+    {
+      "question": "Vilken är världens längsta bergskedja?",
+      "answers": [
+        { "text": "Alperna", "correct": "false" },
+        { "text": "Himalaya", "correct": "false" },
+        { "text": "Andes", "correct": "true" },
+        { "text": "Rocky Mountains", "correct": "false" }
+      ]
+    },
+    {
+      "question": "Vilket är det största rovdjuret på land?",
+      "answers": [
+        { "text": "Lejon", "correct": "false" },
+        { "text": "Björn", "correct": "false" },
+        { "text": "Tiger", "correct": "false" },
+        { "text": "Isbjörn", "correct": "true" }
+      ]
+    },
+    {
+      "question": "Vilken är världens största insjö?",
+      "answers": [
+        { "text": "Övre sjön", "correct": "false" },
+        { "text": "Bajkalsjön", "correct": "true" },
+        { "text": "Michigan-sjön", "correct": "false" },
+        { "text": "Kaspiska havet", "correct": "false" }
+      ]
+    },
+    {
+      "question": "Vilket är det mest talade språket i världen?",
+      "answers": [
+        { "text": "Spanska", "correct": "false" },
+        { "text": "Engelska", "correct": "false" },
+        { "text": "Mandarin", "correct": "true" },
+        { "text": "Arabiska", "correct": "false" }
+      ]
+    },
+    {
+      "question": "Vilket år landade den första människan på månen?",
+      "answers": [
+        { "text": "1965", "correct": "false" },
+        { "text": "1969", "correct": "true" },
+        { "text": "1975", "correct": "false" },
+        { "text": "1982", "correct": "false" }
+      ]
+    },
+    {
+      "question": "Vilken är världens mest utbredda religion?",
+      "answers": [
+        { "text": "Hinduism", "correct": "false" },
+        { "text": "Kristendom", "correct": "false" },
+        { "text": "Buddhism", "correct": "false" },
+        { "text": "Islam", "correct": "true" }
+      ]
+    },
+    {
+      "question": "Vilket är det största landet till ytan?",
+      "answers": [
+        { "text": "Kanada", "correct": "false" },
+        { "text": "Ryssland", "correct": "true" },
+        { "text": "Kina", "correct": "false" },
+        { "text": "USA", "correct": "false" }
+      ]
+    },
+    {
+      "question": "Vilken är världens mest kända pyramid?",
+      "answers": [
+        { "text": "Pyramid of the Sun", "correct": "false" },
+        { "text": "Pyramid of Giza", "correct": "true" },
+        { "text": "Pyramid of the Moon", "correct": "false" },
+        { "text": "Pyramid of Djoser", "correct": "false" }
+      ]
+    },
+    {
+      "question": "Vad är världens största kontinent?",
+      "answers": [
+        { "text": "Afrika", "correct": "false" },
+        { "text": "Sydamerika", "correct": "false" },
+        { "text": "Europa", "correct": "false" },
+        { "text": "Asien", "correct": "true" }
+      ]
+    },
+    {
+      "question": "Vilket är det högsta djuret på land?",
+      "answers": [
+        { "text": "Elefant", "correct": "false" },
+        { "text": "Giraff", "correct": "true" },
+        { "text": "Noshörning", "correct": "false" },
+        { "text": "Häst", "correct": "false" }
+      ]
+    },
+    {
+      "question": "Vilken är världens snabbaste fågel?",
+      "answers": [
+        { "text": "Falk", "correct": "true" },
+        { "text": "Örn", "correct": "false" },
+        { "text": "Kolibri", "correct": "false" },
+        { "text": "And", "correct": "false" }
+      ]
+    },
+        {
+          "question": "Vilken är världens djupaste oceangrav?",
+          "answers": [
+            { "text": "Marianergraven", "correct": "true" },
+            { "text": "Puerto Rico-graven", "correct": "false" },
+            { "text": "Sunda-graven", "correct": "false" },
+            { "text": "Tonga-graven", "correct": "false" }
+          ]
+        },
+        {
+          "question": "Vilken är världens största öken?",
+          "answers": [
+            { "text": "Gobiöknen", "correct": "false" },
+            { "text": "Antarktis", "correct": "true" },
+            { "text": "Saharaöknen", "correct": "false" },
+            { "text": "Karakumöknen", "correct": "false" }
+          ]
+        },
+        {
+          "question": "Vad är världens mest producerade matgröda?",
+          "answers": [
+            { "text": "Vete", "correct": "false" },
+            { "text": "Ris", "correct": "true" },
+            { "text": "Majs", "correct": "false" },
+            { "text": "Potatis", "correct": "false" }
+          ]
+        },
+        {
+          "question": "Vilken är världens längsta järnväg?",
+          "answers": [
+            { "text": "Transsibiriska järnvägen", "correct": "true" },
+            { "text": "Orientexpressen", "correct": "false" },
+            { "text": "Transamerikanska järnvägen", "correct": "false" },
+            { "text": "Indiska järnvägen", "correct": "false" }
+          ]
+        },
+        {
+          "question": "Vilken stad kallas 'Den eviga staden'?",
+          "answers": [
+            { "text": "Paris", "correct": "false" },
+            { "text": "Rom", "correct": "true" },
+            { "text": "Athen", "correct": "false" },
+            { "text": "Kairo", "correct": "false" }
+          ]
+        },
+        {
+          "question": "Vilken är världens mest besökta turistattraktion?",
+          "answers": [
+            { "text": "Eiffeltornet", "correct": "false" },
+            { "text": "Pyramiderna i Giza", "correct": "false" },
+            { "text": "Vatikanen", "correct": "true" },
+            { "text": "Disneyland Paris", "correct": "false" }
+          ]
+        },
+        {
+          "question": "Vilket är världens största rev?",
+          "answers": [
+            { "text": "Stora barriärrevet", "correct": "true" },
+            { "text": "Andamanska korallrevet", "correct": "false" },
+            { "text": "Mexikanska golfens korallrev", "correct": "false" },
+            { "text": "Röda havets korallrev", "correct": "false" }
+          ]
+        },
+        {
+          "question": "Vilken är världens högsta vattenfall?",
+          "answers": [
+            { "text": "Niagarafallen", "correct": "false" },
+            { "text": "Angel Falls", "correct": "true" },
+            { "text": "Victoriafallen", "correct": "false" },
+            { "text": "Iguaçufallen", "correct": "false" }
+          ]
+        },
+        {
+          "question": "Vilken är världens största nationalpark?",
+          "answers": [
+            { "text": "Yellowstone National Park", "correct": "false" },
+            { "text": "Banff National Park", "correct": "false" },
+            { "text": "Amazonas nationalpark", "correct": "false" },
+            { "text": "Norra Ischim National Park", "correct": "true" }
+          ]
+        },
+        {
+          "question": "Vilket djur kallas 'skogens konung'?",
+          "answers": [
+            { "text": "Björn", "correct": "false" },
+            { "text": "Tiger", "correct": "false" },
+            { "text": "Lejon", "correct": "true" },
+            { "text": "Elefant", "correct": "false" }
+          ]
+        }
+      ]
+  
