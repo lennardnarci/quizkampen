@@ -3,7 +3,8 @@
     --background: #EFF8CB;
     --primary: #e1f396;
     --secondary: #f0f8c9;
-    --accent: #015056;
+    --title: #015056;
+    --accent: #75f5b5;
 }
 
 body {
@@ -31,7 +32,7 @@ body {
     flex-shrink: 0;
     margin: 0;
 
-    color: var(--accent);
+    color: var(--title);
     text-align: center;
     font-family: Space Grotesk;
     font-size: 48px;
@@ -139,8 +140,17 @@ body {
     flex-shrink: 0;
     margin: 10px;
 
+    border: 0;
     border-radius: 20px;
     background: var(--primary);
+}
+
+.card:focus {
+    background: var(--accent);
+}
+
+.card:hover {
+    background: var(--accent);
 }
 
 .card-text {
@@ -152,7 +162,7 @@ body {
     justify-content: center;
     flex-shrink: 0;
 
-    color: #222;
+    color: var(--text);
     text-align: center;
     font-family: Urbanist;
     font-size: 36px;
