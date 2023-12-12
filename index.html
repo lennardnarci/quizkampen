@@ -3,24 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quizkampen</title>
-    
+    <title>Quizual</title>
+
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Urbanist:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 </head>
 <body>
     
-    <div class="app">
-        <h1>Quizkampen</h1>
-    <div class="quiz">
-    <h2 id="question">Frågan ska gå hit</h2>
-    <div id="answer-buttons">
-        <button class="btn">Svar 1</button>
-        <button class="btn">Svar 2</button>
-        <button class="btn">Svar 3</button>
-        <button class="btn">Svar 4</button>
+    <div class="header">
+        <h1 class="header-title">Quizual</h1>
     </div>
-    <button id="next-btn">Nästa</button>
+
+    <div class="question">
+        <div class="question-header">
+            <p class="timer">00:31</p>
+            <p class="qnumber">Fråga 1 av 10</p>
+        </div>
+        <div class="question-body">
+            <h1 class="question-text">
+                Vilken planet är känd som 'den röda planeten'?
+            </h1>
+        </div>
     </div>
+
+    <div class="cards">
+        <button class="card c-one">
+            <h1 class="card-text">Jorden</h1>
+        </button>
+        <button class="card c-two">
+            <h1 class="card-text">Mars</h1>
+        </button>
+        <button class="card c-three">
+            <h1 class="card-text">Venus</h1>
+        </button>
+        <button class="card c-four">
+            <h1 class="card-text">Jupiter</h1>
+        </button>
+    </div>
+    
     
     <script src="script.js"></script>
     
