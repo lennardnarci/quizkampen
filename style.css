@@ -4,7 +4,7 @@
     --primary: #e1f396;
     --secondary: #f0f8c9;
     --title: #015056;
-    --accent: #75f5b5;
+    --accent: #f0d25c;
 }
 
 body {
@@ -147,11 +147,13 @@ body {
 
 .card:focus {
     background: var(--accent);
+    transform: translateY(4px);
 }
 
 .card:hover {
     background: var(--accent);
 }
+
 
 .card-text {
     display: flex;
@@ -169,4 +171,18 @@ body {
     font-style: normal;
     font-weight: 700;
     line-height: normal;
+}
+
+.card-text:hover{
+    color: rgb(185, 22, 22);
+    cursor: pointer;
+    
+}
+
+.correct {
+    background: #9aeabc;
+}
+
+.incorrect{
+    background: #ff9393;
 }
