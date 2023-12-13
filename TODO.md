@@ -21,7 +21,7 @@ Uppdatera användargränssnittet för att visa om svaret var korrekt eller inkor
 7. Skicka användaren vidare:
 Efter att användaren har sett resultatet, vänta i 3 sekunder och ladda sedan nästa fråga.
 
-8. Upprepa steg 6-10:
+8. Upprepa steg 3-7:
 Fortsätt processen att visa frågor, hantera svar, visa resultat och skicka användaren vidare tills alla frågor är besvarade.
 
 9. Avsluta spelet:
