@@ -192,12 +192,26 @@ body {
     
 }
 
-.correct {
-    background: #9aeabc;
+.correct, .correct:hover, .correct:focus {
+    background: #65FF75;
 }
 
-.incorrect{
-    background: #ff9393;
+.correct .card-text {
+    display: none;
+}
+
+.incorrect, .incorrect:hover, .incorrect:focus{
+    background: #FF6A6A;
+}
+
+.incorrect .card-text {
+    display: none;
+}
+
+svg {
+    width: 120px;
+    height: 120px;
+    flex-shrink: 0;
 }
 
 .progress {
