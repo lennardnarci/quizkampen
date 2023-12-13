@@ -231,7 +231,6 @@ svg {
     margin: 1%;
     border-radius: 20px;
     background: #E1F396;
-    border: 1px solid #222;
     flex-shrink: 0;
 }
 
@@ -252,6 +251,9 @@ svg {
     flex-shrink: 0;
 }
 
+.current-q {
+    border: 1px solid #222;
+}
 
 
 
