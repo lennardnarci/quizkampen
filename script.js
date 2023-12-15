@@ -18,3 +18,27 @@ loadQuestions()
 
   console.log(questions)
 
+function getRandomQuestion() {
+    const randomNumber = Math.floor(Math.random() * questions.length)
+    return questions[randomNumber]
+}
+
+
+const containerDiv = document.querySelector('.container')
+const startbuttons = document.querySelector('.startbuttons')
+const startbutton = document.querySelector('.startbutton')
+const questionText = document.querySelector('.question-text')
+
+startbutton.addEventListener(('click'), () => {
+    startGame()
+    console.log('button pressed')
+})
+
+function startGame() {
+    containerDiv.classList.remove('start')
+    startbuttons.remove()
+    console.log('Start')
+    const question = getRandomQuestion()
+    console.log(question['question'])
+    questionText.innerHTML = question['question']
+}
