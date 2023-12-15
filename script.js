@@ -27,21 +27,65 @@ function getRandomQuestion() {
 const containerDiv = document.querySelector('.container')
 const startbuttons = document.querySelector('.startbuttons')
 const startbutton = document.querySelector('.startbutton')
+
 const questionText = document.querySelector('.question-text')
 const answerText1 = document.querySelector('.c-one .card-text')
 const answerText2 = document.querySelector('.c-two .card-text')
 const answerText3 = document.querySelector('.c-three .card-text')
 const answerText4 = document.querySelector('.c-four .card-text')
 
+const answer1 = document.querySelector('.c-one')
+const answer2 = document.querySelector('.c-two')
+const answer3 = document.querySelector('.c-three')
+const answer4 = document.querySelector('.c-four')
+const answers = [
+    answer1, 
+    answer2, 
+    answer3, 
+    answer4
+]
+
+/* Lägga till ikoner */
+/* Korrekt ikon */
+const correctIconSvg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+const correctIconPath = document.createElementNS('http://www.w3.org/2000/svg','path');
+
+correctIconSvg.setAttribute('viewBox', '10 10 100 100')
+
+correctIconPath.setAttribute('d','M45 80.8504L24.15 60.0004L17.05 67.0504L45 95.0004L105 35.0004L97.95 27.9504L45 80.8504Z');
+correctIconPath.setAttribute('fill', 'black')
+
+correctIconSvg.appendChild(correctIconPath);
+/* Inkorrekt ikon */
+const incorrectIconSvg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+const incorrectIconPath = document.createElementNS('http://www.w3.org/2000/svg','path');
+
+incorrectIconSvg.setAttribute('viewBox', '10 10 100 100')
+
+incorrectIconPath.setAttribute('d','M95 32.05L87.95 25L60 52.95L32.05 25L25 32.05L52.95 60L25 87.95L32.05 95L60 67.05L87.95 95L95 87.95L67.05 60L95 32.05Z');
+incorrectIconPath.setAttribute('fill', 'black')
+
+incorrectIconSvg.appendChild(incorrectIconPath);
+
+
 let question
-let answer1
-let answer2
-let answer3
-let answer4
 
 startbutton.addEventListener(('click'), () => {
     startGame()
 })
+
+for(let i = 0; i < answers.length; i++){
+    answers[i].addEventListener(('click'), () => {
+        console.log(checkAnswer(i))
+        if (checkAnswer(i) === true) {
+            answers[i].classList.add('correct');
+            answers[i].prepend(correctIconSvg)
+        } else {
+            answers[i].classList.add('incorrect');
+            answers[i].prepend(incorrectIconSvg)
+        }
+    })
+}
 
 function startGame() {
     containerDiv.classList.remove('start')
@@ -65,6 +109,15 @@ function loadNextQuestion() {
     console.log(question['answers'][3]['text'])
     answerText4.innerHTML = question['answers'][3]['text']
 
+}
+
+function checkAnswer(x) {
+    if (question['answers'][x]['correct'] === 'true') {
+        return true
+    }
+    else if (question['answers'][x]['correct'] === 'false'){
+        return false
+    }
 }
 
 

@@ -301,6 +301,7 @@ svg {
     svg {
         width: 60px;
         height: 60px;
+        overflow: visible;
     }
 
     .progress {
