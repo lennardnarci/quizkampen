@@ -80,9 +80,21 @@ for(let i = 0; i < answers.length; i++){
         if (checkAnswer(i) === true) {
             answers[i].classList.add('correct');
             answers[i].prepend(correctIconSvg)
+            setTimeout(() => {
+                loadNextQuestion()
+                answers[i].classList.remove('correct')
+                document.activeElement.blur()
+                correctIconSvg.remove()
+            }, 3000)
         } else {
             answers[i].classList.add('incorrect');
             answers[i].prepend(incorrectIconSvg)
+            setTimeout(() => {
+                loadNextQuestion()
+                answers[i].classList.remove('incorrect')
+                document.activeElement.blur()
+                incorrectIconSvg.remove()
+            }, 3000)
         }
     })
 }
