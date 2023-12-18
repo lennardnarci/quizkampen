@@ -7,9 +7,9 @@ Kontrollera att frågorna korrekt lagras i minnet. -->
 <!-- 3. Visa frågor på sidan:
 Uppdatera HTML med aktuell fråga och svarsalternativ. -->
 
-4. Lägg till timer:
+<!-- 4. Lägg till timer:
 Implementera en timer i JavaScript som startar när en ny fråga visas.
-Sätt tiden till 5 sekunder.
+Sätt tiden till 5 sekunder. -->
 
 <!-- 5. Hantera användarens svar:
 Lägg till en händelselyssnare för knapparna som representerar svarsalternativen.
@@ -21,8 +21,8 @@ Uppdatera användargränssnittet för att visa om svaret var korrekt eller inkor
 <!-- 7. Skicka användaren vidare:
 Efter att användaren har sett resultatet, vänta i 3 sekunder och ladda sedan nästa fråga. -->
 
-8. Upprepa steg 3-7:
-Fortsätt processen att visa frågor, hantera svar, visa resultat och skicka användaren vidare tills alla frågor är besvarade.
+<!-- 8. Upprepa steg 3-7:
+Fortsätt processen att visa frågor, hantera svar, visa resultat och skicka användaren vidare tills alla frågor är besvarade. -->
 
 9. Avsluta spelet:
 Efter att alla frågor är besvarade, visa en slutskärm med totalt antal rätta och felaktiga svar.
