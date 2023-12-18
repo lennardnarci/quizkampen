@@ -13,6 +13,7 @@ let progress = []
 let questionNumber = 0
 const totalQuestionsAmount = 10
 const maxQuestionTime = 10000;
+let timerInterval;
 
 loadQuestions()
   .then((data) => {
@@ -34,6 +35,7 @@ const startbuttons = document.querySelector('.startbuttons')
 const startbutton = document.querySelector('.startbutton')
 
 const qNumber = document.querySelector('.qnumber')
+const timerElem = document.querySelector('.timer')
 const questionText = document.querySelector('.question-text')
 const answerText1 = document.querySelector('.c-one .card-text')
 const answerText2 = document.querySelector('.c-two .card-text')
@@ -106,10 +108,11 @@ function startGame() {
 function loadNextQuestion() {
     questionNumber++
 
-    if (questionNumber < totalQuestionsAmount) {
+    if (questionNumber <= totalQuestionsAmount) {
        loadQuestion()
+       startTimer()
     } else {
-        //EndGame
+        console.log('EndGame')
     }
     
     
@@ -118,6 +121,7 @@ function loadNextQuestion() {
 function loadQuestion() {
     question = getRandomQuestion() 
     
+    timerElem.innerHTML = '00:10'
     console.log(question['question'])
     questionText.innerHTML = question['question']
 
@@ -149,27 +153,68 @@ function checkAnswer(x) {
 }
 
 function correctAnswer(i) {
-    answers[i].classList.add('correct');
-            answers[i].prepend(correctIconSvg)
-            setTimeout(() => {
-                loadNextQuestion()
-                answers[i].classList.remove('correct')
-                document.activeElement.blur()
-                correctIconSvg.remove()
-            }, 3000)
+    clearInterval(timerInterval)
+    disableAnswerButtons()
+
+    answers[i].classList.add('correct')
+    answers[i].prepend(correctIconSvg)
+    setTimeout(() => {
+        loadNextQuestion()
+        enableAnswerButtons()
+        answers[i].classList.remove('correct')
+        document.activeElement.blur()
+        correctIconSvg.remove()
+    }, 3000)
 }
 
 function incorrectAnswer(i) {
-    answers[i].classList.add('incorrect');
-            answers[i].prepend(incorrectIconSvg)
-            setTimeout(() => {
-                loadNextQuestion()
-                answers[i].classList.remove('incorrect')
-                document.activeElement.blur()
-                incorrectIconSvg.remove()
-            }, 3000)
+    clearInterval(timerInterval)
+    disableAnswerButtons()
+
+    answers[i].classList.add('incorrect')
+    answers[i].prepend(incorrectIconSvg)
+    setTimeout(() => {
+        loadNextQuestion()
+        enableAnswerButtons()
+        answers[i].classList.remove('incorrect')
+        document.activeElement.blur()
+        incorrectIconSvg.remove()
+    }, 3000)
 }
 
+function startTimer() {
+    let timeRemaining = maxQuestionTime / 1000; // Convert milliseconds to seconds
+  
+    //Uppdaterar timern varje sekund
+    timerInterval = setInterval(() => {
+      timeRemaining--;
+  
+      //Visar tid kvar i formatet 00:00
+      timerElem.innerHTML = "00:" + String(timeRemaining).padStart(2, '0')
+  
+      //Kolla om tiden runnit ut
+      if (timeRemaining <= 0) {
+        clearInterval(timerInterval); // Stop the timer
+        handleTimeOut();
+      }
+    }, 1000);
+  }
+
+  function handleTimeOut() {
+    console.log('timed out')
+  }
+
+  function disableAnswerButtons() {
+    answers.forEach(button => {
+      button.disabled = true;
+    });
+  }
+  
+  function enableAnswerButtons() {
+    answers.forEach(button => {
+      button.disabled = false;
+    });
+  }
 
 
 
