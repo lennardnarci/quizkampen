@@ -53,6 +53,8 @@ const answers = [
     answer4
 ]
 
+const progressIcons = document.querySelectorAll('.result')
+
 /* Lägga till ikoner */
 /* Korrekt ikon */
 const correctIconSvg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
@@ -87,11 +89,11 @@ for(let i = 0; i < answers.length; i++){
         console.log(checkAnswer(i))
         if (checkAnswer(i) === true) {
             progress.push(checkAnswer(i))
-            correctAnswer(i)
+            correctAnswer(i, questionNumber - 1)
             console.log(progress)
         } else {
             progress.push(checkAnswer(i))
-            incorrectAnswer(i)
+            incorrectAnswer(i, questionNumber - 1)
             console.log(progress)
         }
     })
@@ -152,31 +154,52 @@ function checkAnswer(x) {
     }
 }
 
-function correctAnswer(i) {
+function correctAnswer(i, x) {
     clearInterval(timerInterval)
     disableAnswerButtons()
 
     answers[i].classList.add('correct')
     answers[i].prepend(correctIconSvg)
+
+    progressIcons[x].classList.add('correct')
+    progressIcons[x].prepend(correctIconSvg.cloneNode(true))
+
     setTimeout(() => {
         loadNextQuestion()
         enableAnswerButtons()
         answers[i].classList.remove('correct')
+
+        progressIcons[x].classList.remove('current-q')
+        if (questionNumber <= totalQuestionsAmount) {
+            progressIcons[x+1].classList.add('current-q')
+        }
+
         document.activeElement.blur()
         correctIconSvg.remove()
     }, 3000)
 }
 
-function incorrectAnswer(i) {
+function incorrectAnswer(i, x) {
     clearInterval(timerInterval)
     disableAnswerButtons()
 
     answers[i].classList.add('incorrect')
     answers[i].prepend(incorrectIconSvg)
+
+    progressIcons[x].classList.add('incorrect')
+    progressIcons[x].prepend(incorrectIconSvg.cloneNode(true))
+
     setTimeout(() => {
         loadNextQuestion()
         enableAnswerButtons()
         answers[i].classList.remove('incorrect')
+        progressIcons[x].classList.remove('current-q')
+        
+        progressIcons[x].classList.remove('current-q')
+        if (questionNumber <= totalQuestionsAmount) {
+            progressIcons[x+1].classList.add('current-q')
+        }
+        
         document.activeElement.blur()
         incorrectIconSvg.remove()
     }, 3000)
@@ -216,6 +239,11 @@ function startTimer() {
     });
   }
 
+  function updateProgress() {
+    //for (let i = 0; i < progress.length; i++) {
+        
+    //}
+  }
 
 
 /*

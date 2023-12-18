@@ -205,16 +205,13 @@ body {
     background: #65FF75;
 }
 
-.correct .card-text {
+.correct .card-text, 
+.incorrect .card-text {
     display: none;
 }
 
 .incorrect, .incorrect:hover, .incorrect:focus{
     background: #FF6A6A;
-}
-
-.incorrect .card-text {
-    display: none;
 }
 
 svg {
@@ -240,6 +237,27 @@ svg {
     border-radius: 20px;
     background: #E1F396;
     flex-shrink: 0;
+}
+
+.result.correct {
+    background: #96FFA1;
+}
+
+.result.correct > svg, 
+.result.incorrect > svg {
+    width: 30px;
+    height: 30px;
+    margin-left: 12px;
+    margin-top: 12px;
+}
+
+.result.correct > .result-text,
+.result.incorrect > .result-text {
+    display: none;
+}
+
+.result.incorrect {
+    background: #FF9D9D;
 }
 
 .result-text {
@@ -325,6 +343,11 @@ svg {
     }
 
     .result-text {
+        display: none;
+    }
+
+    .result.correct > svg, 
+    .result.incorrect > svg{
         display: none;
     }
 
