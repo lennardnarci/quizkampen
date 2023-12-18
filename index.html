@@ -11,38 +11,84 @@
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Urbanist:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 </head>
 <body>
-    
     <div class="header">
-        <h1 class="header-title">Quizual</h1>
+        <a href="/">
+            <h1 class="header-title">Quizual</h1>
+        </a>
     </div>
+    
+    <div class="container start">
+        <div class="question">
+            <div class="question-header">
+                <p class="timer">00:10</p>
+                <p class="qnumber">Fråga 1 av 10</p>
+            </div>
+            <div class="question-body">
+                <h1 class="question-text">
+                    Välkommen till Quizual, det ultimata spelet som utmanar din kunskap och sätter ditt intellekt på prov!<br><br>
 
-    <div class="question">
-        <div class="question-header">
-            <p class="timer">00:31</p>
-            <p class="qnumber">Fråga 1 av 10</p>
+                    10 sekunder per fråga och 10 frågor totalt. <br>
+                    Lycka till!
+                </h1>
+            </div>
         </div>
-        <div class="question-body">
-            <h1 class="question-text">
-                Vilken planet är känd som 'den röda planeten'?
-            </h1>
-        </div>
-    </div>
 
-    <div class="cards">
-        <button class="card c-one">
-            <h1 class="card-text">Jorden</h1>
-        </button>
-        <button class="card c-two">
-            <h1 class="card-text">Mars</h1>
-        </button>
-        <button class="card c-three">
-            <h1 class="card-text">Venus</h1>
-        </button>
-        <button class="card c-four">
-            <h1 class="card-text">Jupiter</h1>
-        </button>
+        <div class="startbuttons">
+            <button class="startbutton">
+                <h1 class="startbutton-text">Starta</h1>
+            </button>
+        </div>
+
+        <div class="cards">
+            <button class="card c-one">
+                <h1 class="card-text">Jorden</h1>
+            </button>
+            <button class="card c-two">
+                <h1 class="card-text">Mars</h1>
+            </button>
+            <button class="card c-three">
+                <h1 class="card-text">Venus</h1>
+            </button>
+            <button class="card c-four">
+                <h1 class="card-text">Jupiter</h1>
+            </button>
+        </div>
+
+        <div class="progress">
+            <div class="result current-q">
+                <p class="result-text">1</p>
+            </div>
+            <div class="result">
+                <p class="result-text">2</p>
+            </div>
+            <div class="result">
+                <p class="result-text">3</p>
+            </div>
+            <div class="result">
+                <p class="result-text">4</p>
+            </div>
+            <div class="result">
+                <p class="result-text">5</p>
+            </div>
+            <div class="result">
+                <p class="result-text">6</p>
+            </div>
+            <div class="result">
+                <p class="result-text">7</p>
+            </div>
+            <div class="result">
+                <p class="result-text">8</p>
+            </div>
+            <div class="result">
+                <p class="result-text">9</p>
+            </div>
+            <div class="result">
+                <p class="result-text">10</p>
+            </div>
+
+        </div>
     </div>
-     
+    
     <script src="script.js"></script>
     
 </body>

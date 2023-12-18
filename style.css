@@ -11,6 +11,15 @@ body {
     margin:0;
     padding:0;
     background: var(--background);
+    overflow-y: hidden;
+}
+
+.container {
+    height: 90vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .header {
@@ -21,6 +30,15 @@ body {
 
     background: var(--primary);
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+.header a {
+    text-decoration-color: rgba(1, 80, 86, 0.2);
+    transition: text-decoration-color 300ms;
+}
+
+.header a:hover {
+    text-decoration-color: rgba(1, 80, 86, 0.7);
 }
 
 .header-title {
@@ -43,10 +61,9 @@ body {
 
 .question {
     width: 84%;
-    height: 275px;
     flex-shrink: 0;
     margin: auto;
-    margin-bottom: 1%;
+    margin-bottom: 25px;
 
     filter: drop-shadow(2px 4px 4px rgba(0, 0, 0, 0.25));
 }
@@ -84,7 +101,7 @@ body {
 }
 
 .qnumber {
-    width: 200px;
+    width: 250px;
     height: 53px;
     margin: 0;
     padding-top: 3px;
@@ -112,8 +129,11 @@ body {
 }
 
 .question-text {
-    height: 75px;
-    margin-bottom: 0;
+    height: 222px;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 
     color: var(--text);
     text-align: center;
@@ -124,9 +144,10 @@ body {
     line-height: normal;
 }
 
-.cards {
+.cards, .startbuttons{
     width: 84%;
     margin: auto;
+    margin-bottom: 10px;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -134,35 +155,36 @@ body {
     filter: drop-shadow(2px 4px 4px rgba(0, 0, 0, 0.25));
 }
 
-.card {
+.card, .startbutton {
     width: 23%;
-    height: 300px;
+    height: 250px;
     flex-shrink: 0;
     margin: 10px;
 
     border: 0;
     border-radius: 20px;
     background: var(--primary);
+    transition: background 300ms, transform 300ms;
 }
 
-.card:focus {
+.card:focus, .startbutton:focus {
     background: var(--accent);
     transform: translateY(4px);
 }
 
-.card:hover {
+.card:hover, .startbutton:hover {
     background: var(--accent);
 }
 
 
-.card-text {
+.card-text, .startbutton-text {
     display: flex;
     width: 100%;
-    height: 300px;
+    height: 250px;
     margin: 0;
     flex-direction: column;
     justify-content: center;
-    flex-shrink: 0;
+    word-wrap: break-word;
 
     color: var(--text);
     text-align: center;
@@ -179,10 +201,165 @@ body {
     
 }
 
-.correct {
-    background: #9aeabc;
+.correct, .correct:hover, .correct:focus {
+    background: #65FF75;
 }
 
-.incorrect{
-    background: #ff9393;
+.correct .card-text, 
+.incorrect .card-text {
+    display: none;
 }
+
+.incorrect, .incorrect:hover, .incorrect:focus{
+    background: #FF6A6A;
+}
+
+svg {
+    width: 120px;
+    height: 120px;
+}
+
+.progress {
+    width: 84%;
+    height: 55px;
+    margin: auto;
+    margin-bottom: 10%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.result {
+    width: 55px;
+    height: 55px;
+    margin: 1%;
+    border-radius: 20px;
+    background: #E1F396;
+    flex-shrink: 0;
+}
+
+.result.correct {
+    background: #96FFA1;
+}
+
+.result.correct > svg, 
+.result.incorrect > svg {
+    width: 30px;
+    height: 30px;
+    margin-left: 12px;
+    margin-top: 12px;
+}
+
+.result.correct > .result-text,
+.result.incorrect > .result-text {
+    display: none;
+}
+
+.result.incorrect {
+    background: #FF9D9D;
+}
+
+.result-text {
+    display: flex;
+    margin: 0;
+    width: 55px;
+    height: 55px;
+    flex-direction: column;
+    justify-content: center;
+    color: #222;
+    text-align: center;
+    font-family: Urbanist;
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    flex-shrink: 0;
+}
+
+.current-q {
+    border: 1px solid #222;
+}
+
+/*Game start screen*/
+.start .question-text{
+    height: 380px;;
+}
+
+.start .question-body {
+    height: 380px;
+}
+
+.start .cards {
+    display: none;
+}
+
+.startbutton {
+    width: 100%;
+    height: 150px;
+}
+
+.startbutton-text {
+    height: 150px;
+}
+
+
+@media only screen and (max-width: 768px) {
+    /* För mindre skärmar: */
+    .question {
+        margin-bottom: 5%;
+        width: 94%;
+    }
+
+    .cards {
+        width: 94%;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .card {
+        height: 80px;
+        width: 100%;
+    }
+
+    .card-text {
+        height: 80px;
+    }
+
+    svg {
+        width: 60px;
+        height: 60px;
+        overflow: visible;
+    }
+
+    .progress {
+        height: 22px;
+    }
+
+    .result {
+        width: 22px;
+        height: 22px;
+        border-radius: 0;
+    }
+
+    .result-text {
+        display: none;
+    }
+
+    .result.correct > svg, 
+    .result.incorrect > svg{
+        display: none;
+    }
+
+    .question-text {
+        font-size: 30px;
+    }
+
+    .start .question {
+        margin-bottom: 2%;
+    }
+
+    .startbuttons {
+        margin-top: 5%;
+    }
+  }
