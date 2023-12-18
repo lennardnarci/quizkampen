@@ -9,6 +9,11 @@ async function loadQuestions() {
 }
 
 let questions = [] 
+let progress = []
+let questionNumber = 0
+const totalQuestionsAmount = 10
+const maxQuestionTime = 10000;
+
 loadQuestions()
   .then((data) => {
     for(let question of data){
@@ -28,6 +33,7 @@ const containerDiv = document.querySelector('.container')
 const startbuttons = document.querySelector('.startbuttons')
 const startbutton = document.querySelector('.startbutton')
 
+const qNumber = document.querySelector('.qnumber')
 const questionText = document.querySelector('.question-text')
 const answerText1 = document.querySelector('.c-one .card-text')
 const answerText2 = document.querySelector('.c-two .card-text')
@@ -78,23 +84,13 @@ for(let i = 0; i < answers.length; i++){
     answers[i].addEventListener(('click'), () => {
         console.log(checkAnswer(i))
         if (checkAnswer(i) === true) {
-            answers[i].classList.add('correct');
-            answers[i].prepend(correctIconSvg)
-            setTimeout(() => {
-                loadNextQuestion()
-                answers[i].classList.remove('correct')
-                document.activeElement.blur()
-                correctIconSvg.remove()
-            }, 3000)
+            progress.push(checkAnswer(i))
+            correctAnswer(i)
+            console.log(progress)
         } else {
-            answers[i].classList.add('incorrect');
-            answers[i].prepend(incorrectIconSvg)
-            setTimeout(() => {
-                loadNextQuestion()
-                answers[i].classList.remove('incorrect')
-                document.activeElement.blur()
-                incorrectIconSvg.remove()
-            }, 3000)
+            progress.push(checkAnswer(i))
+            incorrectAnswer(i)
+            console.log(progress)
         }
     })
 }
@@ -108,7 +104,20 @@ function startGame() {
 }
 
 function loadNextQuestion() {
-    question = getRandomQuestion()
+    questionNumber++
+
+    if (questionNumber < totalQuestionsAmount) {
+       loadQuestion()
+    } else {
+        //EndGame
+    }
+    
+    
+}
+
+function loadQuestion() {
+    question = getRandomQuestion() 
+    
     console.log(question['question'])
     questionText.innerHTML = question['question']
 
@@ -121,6 +130,13 @@ function loadNextQuestion() {
     console.log(question['answers'][3]['text'])
     answerText4.innerHTML = question['answers'][3]['text']
 
+    //Tar bort frågan från frågearrayen
+    //Så man inte får samma fråga flera gånger
+    const index = questions.indexOf(question)
+    questions.splice(index, 1)
+
+    //Ändrar i UI så att man kan se vilken fråga man är på
+    qNumber.innerHTML = "Fråga " + questionNumber + " av 10"
 }
 
 function checkAnswer(x) {
@@ -130,6 +146,28 @@ function checkAnswer(x) {
     else if (question['answers'][x]['correct'] === 'false'){
         return false
     }
+}
+
+function correctAnswer(i) {
+    answers[i].classList.add('correct');
+            answers[i].prepend(correctIconSvg)
+            setTimeout(() => {
+                loadNextQuestion()
+                answers[i].classList.remove('correct')
+                document.activeElement.blur()
+                correctIconSvg.remove()
+            }, 3000)
+}
+
+function incorrectAnswer(i) {
+    answers[i].classList.add('incorrect');
+            answers[i].prepend(incorrectIconSvg)
+            setTimeout(() => {
+                loadNextQuestion()
+                answers[i].classList.remove('incorrect')
+                document.activeElement.blur()
+                incorrectIconSvg.remove()
+            }, 3000)
 }
 
 
