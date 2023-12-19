@@ -24,8 +24,8 @@ Efter att användaren har sett resultatet, vänta i 3 sekunder och ladda sedan n
 <!-- 8. Upprepa steg 3-7:
 Fortsätt processen att visa frågor, hantera svar, visa resultat och skicka användaren vidare tills alla frågor är besvarade. -->
 
-<!--9. Avsluta spelet:
-Efter att alla frågor är besvarade, visa en slutskärm med totalt antal rätta och felaktiga svar. -->
+9. Avsluta spelet:
+Efter att alla frågor är besvarade, visa en slutskärm med totalt antal rätta och felaktiga svar.
 
 10. Testa och felsök:
 Testa spelet noggrant för att säkerställa att alla funktioner fungerar som förväntat.
