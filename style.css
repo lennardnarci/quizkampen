@@ -208,8 +208,7 @@ body {
 
 .card-text:hover{
     color: rgb(185, 22, 22);
-    cursor: pointer;
-    
+    cursor: pointer; 
 }
 
 .correct, 
@@ -381,6 +380,7 @@ svg {
     .card-text {
         height: 60px;
         font-size: 1.5rem;
+        color: var(--text);
     }
 
     svg {
@@ -409,16 +409,19 @@ svg {
     }
 
     .question-text {
-        font-size: 30px;
+        font-size: 24px;
     }
 
     .start .question {
         margin-bottom: 2%;
     }
+    
+    .start .question-body {
+        height: 280px;
+    }
 
     .startbuttons {
         margin-top: 5%;
     }
-    
   }
   
