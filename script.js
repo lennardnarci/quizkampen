@@ -169,13 +169,10 @@ function checkAnswer(x) {
     }
 }
 
-
-
 function playCorrectSound() {
   let correctaudio = new Audio("sounds/correct.mp3");
   correctaudio.play();
 }
-
 
 function correctAnswer(i, x) {
     clearInterval(timerInterval)
@@ -205,13 +202,11 @@ function correctAnswer(i, x) {
     playCorrectSound();    
 }
 
-
 function playIncorrectSound() {
   let incorrectaudio = new Audio("sounds/wrong.mp3"); 
   incorrectaudio.volume = 0.5;
   incorrectaudio.play();
 }
-
 
 function incorrectAnswer(i, x) {
     clearInterval(timerInterval)
