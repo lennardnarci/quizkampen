@@ -242,6 +242,11 @@ function incorrectAnswer(i, x) {
     playIncorrectSound();
 }
 
+function playtimeoutSound() {
+  let timeoutaudio = new Audio("sounds/timeout.mp3"); 
+  timeoutaudio.play();
+}
+
 function startTimer() {
     let timeRemaining = maxQuestionTime / 1000; 
   
@@ -256,8 +261,10 @@ function startTimer() {
       if (timeRemaining <= 0) {
         clearInterval(timerInterval); // Stop the timer
         handleTimeOut(questionNumber - 1);
+        playtimeoutSound();
       }
     }, 1000);
+   
   }
 
   function handleTimeOut(x) {
