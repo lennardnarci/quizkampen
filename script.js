@@ -10,6 +10,7 @@ async function loadQuestions() {
 
 let questions = [] 
 let progress = []
+let Score = 0
 let questionNumber = 0
 const totalQuestionsAmount = 10
 const maxQuestionTime = 10000;
@@ -42,6 +43,7 @@ const answerText2 = document.querySelector('.c-two .card-text')
 const answerText3 = document.querySelector('.c-three .card-text')
 const answerText4 = document.querySelector('.c-four .card-text')
 
+const cardDiv = document.querySelector('.cards')
 const answer1 = document.querySelector('.c-one')
 const answer2 = document.querySelector('.c-two')
 const answer3 = document.querySelector('.c-three')
@@ -101,12 +103,13 @@ for(let i = 0; i < answers.length; i++){
 
 function startGame() {
     containerDiv.classList.remove('start')
-    startbuttons.remove()
+    startbutton.remove()
+    startbuttons.style.display = "none";
     console.log('Start')
     loadNextQuestion()
     
 }
-
+// Funktion som ger en ny fråga vid klick.
 function loadNextQuestion() {
     questionNumber++
 
@@ -114,7 +117,7 @@ function loadNextQuestion() {
        loadQuestion()
        startTimer()
     } else {
-        console.log('EndGame')
+        Showscore()
     }
     
     
@@ -166,7 +169,7 @@ function playCorrectSound() {
 function correctAnswer(i, x) {
     clearInterval(timerInterval)
     disableAnswerButtons()
-
+    Score++
     answers[i].classList.add('correct')
     answers[i].prepend(correctIconSvg)
 
@@ -187,7 +190,7 @@ function correctAnswer(i, x) {
         document.activeElement.blur()
         correctIconSvg.remove()
     }, 3000)
-
+    
     playCorrectSound();    
 }
 
@@ -267,7 +270,26 @@ function startTimer() {
     //}
   }
 
-  
+  function Showscore(){
+    questionText.innerHTML = "Du har fått " + Score + " av " + totalQuestionsAmount + " poäng!"
+    cardDiv.remove()
+    const playAgainButton = document.createElement('button');
+    //skapar 3 element
+    playAgainButton.classList.add('startbutton');
+    const playAgaintext = document.createElement('h1');
+    playAgaintext.textContent = 'Spela igen';
+    playAgaintext.classList.add('startbutton-text')
+    playAgainButton.appendChild(playAgaintext)
+    startbuttons.style.display = "flex";
+    startbuttons.appendChild(playAgainButton);
+    playAgainButton.addEventListener('click', () => {
+        questionText.innerHTML = ''; 
+        location.reload()
+ 
+    });
+
+
+  }
 
 
 /*
