@@ -336,6 +336,10 @@ svg {
 
 @media only screen and (max-width: 768px) {
     /* För mindre skärmar: */
+    body {
+        overflow-y: visible;
+    }
+
     .question {
         margin-bottom: 5%;
         width: 94%;
