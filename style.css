@@ -320,6 +320,10 @@ svg {
     height: 150px;
 }
 
+.hidden {
+    visibility: hidden;
+}
+
 
 @media only screen and (max-width: 768px) {
     /* För mindre skärmar: */
