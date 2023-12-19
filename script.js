@@ -174,7 +174,6 @@ function checkAnswer(x) {
 }
 
 
-let correctSound = document.getElementById('correct');
 
 function playCorrectSound() {
   let correctaudio = new Audio("sounds/correct.mp3");
@@ -210,10 +209,10 @@ function correctAnswer(i, x) {
     playCorrectSound();    
 }
 
-let incorrectSound = document.getElementById('incorrect'); 
 
 function playIncorrectSound() {
   let incorrectaudio = new Audio("sounds/wrong.mp3"); 
+  incorrectaudio.volume = 0.5;
   incorrectaudio.play();
 }
 
@@ -247,6 +246,7 @@ function incorrectAnswer(i, x) {
 
 function playtimeoutSound() {
   let timeoutaudio = new Audio("sounds/timeout.mp3"); 
+  timeoutaudio.volume = 0.5;
   timeoutaudio.play();
 }
 
