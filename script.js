@@ -262,6 +262,33 @@ function startTimer() {
 
   function handleTimeOut() {
     console.log('timed out')
+    disableAnswerButtons()
+
+    for (let i = 0; i < answers.length; i++) {
+      answers[i].classList.add('incorrect')
+      answers[i].prepend(timeoutIconSvg.cloneNode(true))
+    }
+    progressIcons[x].classList.add('incorrect')
+    progressIcons[x].prepend(timeoutIconSvg.cloneNode(true))
+
+    setTimeout(() => {
+      loadNextQuestion()
+      enableAnswerButtons()
+
+      for (let i = 0; i < answers.length; i++) {
+        answers[i].classList.remove('incorrect')
+      }
+
+      progressIcons[x].classList.remove('current-q')
+      if (questionNumber <= totalQuestionsAmount) {
+          progressIcons[x+1].classList.add('current-q')
+      }
+      
+      const timeoutIcons = document.querySelectorAll('.card .timeout')
+      timeoutIcons.forEach((elem) => {
+        elem.remove()
+      })
+    }, 3000)
   }
 
   function disableAnswerButtons() {

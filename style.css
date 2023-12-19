@@ -329,6 +329,10 @@ svg {
     opacity: 0;
 }
 
+.card {
+    transition: transform 1.2s ease-in-out;  
+}
+
 
 @media only screen and (max-width: 768px) {
     /* För mindre skärmar: */
@@ -407,7 +411,4 @@ svg {
     }
     
   }
-  .card {
-    
-    transition: transform 1.2s ease-in-out;  
-  }
+  
