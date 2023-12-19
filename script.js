@@ -30,7 +30,7 @@ function getRandomQuestion() {
     return questions[randomNumber]
 }
 
-
+const title = document.querySelector('.title')
 const containerDiv = document.querySelector('.container')
 const startbuttons = document.querySelector('.startbuttons')
 const startbutton = document.querySelector('.startbutton')
@@ -102,6 +102,10 @@ startbutton.addEventListener(('click'), () => {
     startGame()
 })
 
+title.addEventListener(('click'), () => {
+    location.reload()
+})
+
 for(let i = 0; i < answers.length; i++){
     answers[i].addEventListener(('click'), () => {
         console.log(checkAnswer(i))
@@ -137,8 +141,6 @@ function loadNextQuestion() {
     } else {
         Showscore()
     }
-    
-    
 }
 
 function loadQuestion() {
@@ -164,7 +166,19 @@ function loadQuestion() {
 
     //Ändrar i UI så att man kan se vilken fråga man är på
     qNumber.innerHTML = "Fråga " + questionNumber + " av 10"
+
+    flipmotion()
 }
+
+
+function flipmotion() {
+  const cards = document.querySelectorAll('.card');
+  cards.forEach(card => {
+      card.style.transform = "rotateY(" + (questionNumber * 360) + "deg)";
+      
+  });
+}
+
 
 function checkAnswer(x) {
     if (question['answers'][x]['correct'] === 'true') {
@@ -243,7 +257,7 @@ function incorrectAnswer(i, x) {
 
 function playtimeoutSound() {
   let timeoutaudio = new Audio("sounds/timeout.mp3"); 
-  timeoutaudio.volume = 0.5;
+  timeoutaudio.volume = 0.3;
   timeoutaudio.play();
 }
 
