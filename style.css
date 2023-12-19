@@ -336,19 +336,24 @@ svg {
 
 @media only screen and (max-width: 768px) {
     /* För mindre skärmar: */
-    body {
-        overflow-y: visible;
+    .container {
+        height: 70vh;
     }
 
     .question {
-        margin-bottom: 5%;
+        margin-bottom: 0%;
         width: 94%;
+    }
+
+    .question-body {
+        height: 180px;
     }
 
     .cards {
         width: 94%;
         flex-direction: column;
         align-items: center;
+        margin-top: 0;
     }
 
     .card {
