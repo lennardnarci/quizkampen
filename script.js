@@ -121,6 +121,8 @@ function startGame() {
     containerDiv.classList.remove('start')
     startbutton.remove()
     startbuttons.style.display = "none";
+    qNumber.classList.remove('hidden')
+    timerElem.classList.remove('hidden')
     console.log('Start')
     loadNextQuestion()
     
