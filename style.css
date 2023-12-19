@@ -380,6 +380,9 @@ svg {
     .card-text {
         height: 60px;
         font-size: 1.5rem;
+    }
+
+    .card-text:hover {
         color: var(--text);
     }
 
