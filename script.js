@@ -154,6 +154,15 @@ function checkAnswer(x) {
     }
 }
 
+
+let correctSound = document.getElementById('correct');
+
+function playCorrectSound() {
+  let correctaudio = new Audio("sounds/correct.mp3");
+  correctaudio.play();
+}
+
+
 function correctAnswer(i, x) {
     clearInterval(timerInterval)
     disableAnswerButtons()
@@ -164,6 +173,7 @@ function correctAnswer(i, x) {
     progressIcons[x].classList.add('correct')
     progressIcons[x].prepend(correctIconSvg.cloneNode(true))
 
+   
     setTimeout(() => {
         loadNextQuestion()
         enableAnswerButtons()
@@ -177,7 +187,17 @@ function correctAnswer(i, x) {
         document.activeElement.blur()
         correctIconSvg.remove()
     }, 3000)
+
+    playCorrectSound();    
 }
+
+let incorrectSound = document.getElementById('incorrect'); 
+
+function playIncorrectSound() {
+  let incorrectaudio = new Audio("sounds/wrong.mp3"); 
+  incorrectaudio.play();
+}
+
 
 function incorrectAnswer(i, x) {
     clearInterval(timerInterval)
@@ -203,10 +223,12 @@ function incorrectAnswer(i, x) {
         document.activeElement.blur()
         incorrectIconSvg.remove()
     }, 3000)
+
+    playIncorrectSound();
 }
 
 function startTimer() {
-    let timeRemaining = maxQuestionTime / 1000; // Convert milliseconds to seconds
+    let timeRemaining = maxQuestionTime / 1000; 
   
     //Uppdaterar timern varje sekund
     timerInterval = setInterval(() => {
@@ -244,6 +266,8 @@ function startTimer() {
         
     //}
   }
+
+  
 
 
 /*
