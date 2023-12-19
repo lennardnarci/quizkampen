@@ -217,6 +217,13 @@ body {
 svg {
     width: 120px;
     height: 120px;
+    opacity: 0;
+    transition: opacity 300ms;
+}
+
+.correct > svg,
+.incorrect > svg {
+    opacity: 1;
 }
 
 .progress {
