@@ -65,7 +65,7 @@ correctIconSvg.setAttribute('viewBox', '10 10 100 100')
 correctIconPath.setAttribute('d','M45 80.8504L24.15 60.0004L17.05 67.0504L45 95.0004L105 35.0004L97.95 27.9504L45 80.8504Z');
 correctIconPath.setAttribute('fill', 'black')
 
-correctIconSvg.appendChild(correctIconPath);
+correctIconSvg.appendChild(correctIconPath)
 /* Inkorrekt ikon */
 const incorrectIconSvg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
 const incorrectIconPath = document.createElementNS('http://www.w3.org/2000/svg','path');
@@ -75,7 +75,23 @@ incorrectIconSvg.setAttribute('viewBox', '10 10 100 100')
 incorrectIconPath.setAttribute('d','M95 32.05L87.95 25L60 52.95L32.05 25L25 32.05L52.95 60L25 87.95L32.05 95L60 67.05L87.95 95L95 87.95L67.05 60L95 32.05Z');
 incorrectIconPath.setAttribute('fill', 'black')
 
-incorrectIconSvg.appendChild(incorrectIconPath);
+incorrectIconSvg.appendChild(incorrectIconPath)
+/* Timeout ikon */
+const timeoutIconSvg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+const timeoutIconPath1 = document.createElementNS('http://www.w3.org/2000/svg','path');
+const timeoutIconPath2 = document.createElementNS('http://www.w3.org/2000/svg','path');
+
+timeoutIconSvg.setAttribute('viewBox', '10 10 100 100')
+timeoutIconSvg.setAttribute('class', 'timeout')
+
+timeoutIconPath1.setAttribute('d','M42.0127 24.0068H78.0127V39.5468L63.0127 54.5468L67.2727 58.7468L84.0127 42.0068V18.0068H36.0127V27.5468L42.0127 33.5468V24.0068Z');
+timeoutIconPath1.setAttribute('fill', 'black')
+
+timeoutIconPath2.setAttribute('d','M17.5832 17.5803L13.3232 21.8403L52.7432 61.2603L36.0032 78.0003V102H84.0032V92.4603L98.1632 106.62L102.423 102.36L17.5832 17.5803ZM78.0032 96.0003H42.0032V80.4603L57.0032 65.4603L78.0032 86.4603V96.0003Z');
+timeoutIconPath2.setAttribute('fill', 'black')
+
+timeoutIconSvg.appendChild(timeoutIconPath1)
+timeoutIconSvg.appendChild(timeoutIconPath2)
 
 
 let question
@@ -213,7 +229,6 @@ function incorrectAnswer(i, x) {
         loadNextQuestion()
         enableAnswerButtons()
         answers[i].classList.remove('incorrect')
-        progressIcons[x].classList.remove('current-q')
         
         progressIcons[x].classList.remove('current-q')
         if (questionNumber <= totalQuestionsAmount) {
@@ -240,13 +255,40 @@ function startTimer() {
       //Kolla om tiden runnit ut
       if (timeRemaining <= 0) {
         clearInterval(timerInterval); // Stop the timer
-        handleTimeOut();
+        handleTimeOut(questionNumber - 1);
       }
     }, 1000);
   }
 
-  function handleTimeOut() {
+  function handleTimeOut(x) {
     console.log('timed out')
+    disableAnswerButtons()
+
+    for (let i = 0; i < answers.length; i++) {
+      answers[i].classList.add('incorrect')
+      answers[i].prepend(timeoutIconSvg.cloneNode(true))
+    }
+    progressIcons[x].classList.add('incorrect')
+    progressIcons[x].prepend(timeoutIconSvg.cloneNode(true))
+
+    setTimeout(() => {
+      loadNextQuestion()
+      enableAnswerButtons()
+
+      for (let i = 0; i < answers.length; i++) {
+        answers[i].classList.remove('incorrect')
+      }
+
+      progressIcons[x].classList.remove('current-q')
+      if (questionNumber <= totalQuestionsAmount) {
+          progressIcons[x+1].classList.add('current-q')
+      }
+      
+      const timeoutIcons = document.querySelectorAll('.card .timeout')
+      timeoutIcons.forEach((elem) => {
+        elem.remove()
+      })
+    }, 3000)
   }
 
   function disableAnswerButtons() {
