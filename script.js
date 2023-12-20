@@ -12,7 +12,7 @@ let questions = []
 let progress = []
 let Score = 0
 let questionNumber = 0
-const totalQuestionsAmount = 10
+const totalQuestionsAmount = 1
 const maxQuestionTime = 10000;
 let timerInterval;
 
@@ -122,6 +122,7 @@ for(let i = 0; i < answers.length; i++){
 }
 
 function startGame() {
+    playIntroSound()
     containerDiv.classList.remove('start')
     startbutton.remove()
     startbuttons.style.display = "none";
@@ -139,7 +140,8 @@ function loadNextQuestion() {
        loadQuestion()
        startTimer()
     } else {
-        Showscore()
+      playIntroSound()
+      Showscore()
     }
 }
 
@@ -189,11 +191,6 @@ function checkAnswer(x) {
     }
 }
 
-function playCorrectSound() {
-  let correctaudio = new Audio("sounds/correct.mp3");
-  correctaudio.play();
-}
-
 function correctAnswer(i, x) {
     clearInterval(timerInterval)
     disableAnswerButtons()
@@ -220,12 +217,6 @@ function correctAnswer(i, x) {
     }, 3000)
     
     playCorrectSound();    
-}
-
-function playIncorrectSound() {
-  let incorrectaudio = new Audio("sounds/wrong.mp3"); 
-  incorrectaudio.volume = 0.5;
-  incorrectaudio.play();
 }
 
 function incorrectAnswer(i, x) {
@@ -255,8 +246,38 @@ function incorrectAnswer(i, x) {
     playIncorrectSound();
 }
 
+function playCorrectSound() {
+  let correctaudio = new Audio("sounds/correct.mp3");
+  correctaudio.play();
+}
+
+function playIncorrectSound() {
+  let incorrectaudio = new Audio("sounds/wrong.mp3"); 
+  incorrectaudio.volume = 0.5;
+  incorrectaudio.play();
+}
+
 function playtimeoutSound() {
   let timeoutaudio = new Audio("sounds/timeout.mp3"); 
+  timeoutaudio.volume = 0.3;
+  timeoutaudio.play();
+}
+
+function playClockSound(quick) {
+  let clockaudio = new Audio("sounds/clock.wav"); 
+  clockaudio.volume = 0.3;
+  if (!quick) {
+    clockaudio.play();
+  } else {
+    clockaudio.play();
+    setTimeout(() => {
+      clockaudio.play();
+    }, 500)
+  }
+}
+
+function playIntroSound() {
+  let timeoutaudio = new Audio("sounds/intro.wav"); 
   timeoutaudio.volume = 0.3;
   timeoutaudio.play();
 }
@@ -267,7 +288,7 @@ function startTimer() {
     //Uppdaterar timern varje sekund
     timerInterval = setInterval(() => {
       timeRemaining--;
-  
+
       //Visar tid kvar i formatet 00:00
       timerElem.innerHTML = "00:" + String(timeRemaining).padStart(2, '0')
   
@@ -276,6 +297,16 @@ function startTimer() {
         clearInterval(timerInterval); // Stop the timer
         handleTimeOut(questionNumber - 1);
         playtimeoutSound();
+      } else {
+        //Spelar upp timer ljudet
+        if (timeRemaining <= 3){
+          //Spelar upp 2 klockljud quick=true
+          playClockSound(true)
+        } else {
+          //spelar upp 1 clockljud quick=false
+          playClockSound(false)
+        }
+        
       }
     }, 1000);
    
@@ -324,15 +355,11 @@ function startTimer() {
     });
   }
 
-  function updateProgress() {
-    //for (let i = 0; i < progress.length; i++) {
-        
-    //}
-  }
-
   function Showscore(){
     questionText.innerHTML = "Du har fått " + Score + " av " + totalQuestionsAmount + " poäng!"
     cardDiv.remove()
+    qNumber.classList.add('hidden')
+    timerElem.classList.add('hidden')
     const playAgainButton = document.createElement('button');
     //skapar 3 element
     playAgainButton.classList.add('startbutton');
@@ -351,7 +378,7 @@ function startTimer() {
 
   }
 
-
+// Ikoners SVG
 /*
 Correct svg
 <svg xmlns="http://www.w3.org/2000/svg" width="120" height="120" viewBox="0 0 120 120" fill="none">

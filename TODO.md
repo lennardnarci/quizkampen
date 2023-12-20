@@ -30,3 +30,12 @@ Efter att alla frågor är besvarade, visa en slutskärm med totalt antal rätta
 10. Testa och felsök:
 Testa spelet noggrant för att säkerställa att alla funktioner fungerar som förväntat.
 Felsök och justera kod vid behov.
+
+
+<!-- -lägg till hidden på question header vid avslut -->
+
+-lägga till fler rågor
+
+<!-- -lägga till klock ljud -->
+
+-göra om playsound funktionen till en funktion med en switch som spelar ljud baserat på vad som matas in
