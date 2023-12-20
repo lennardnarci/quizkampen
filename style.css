@@ -65,6 +65,7 @@ body {
     flex-shrink: 0;
     margin: auto;
     margin-bottom: 25px;
+    margin-top: 0;
 
     filter: drop-shadow(2px 4px 4px rgba(0, 0, 0, 0.25));
 }
@@ -131,6 +132,7 @@ body {
     border-radius: 0px 0px 10px 10px;
     border: 1px solid var(--text);
     background: var(--primary);
+    transition: height 200ms ease-in-out;
 }
 
 .question-text {
