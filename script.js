@@ -30,6 +30,7 @@ function getRandomQuestion() {
   return questions[randomNumber]
 }
 
+//DOM Objekt
 const title = document.querySelector('.title')
 const containerDiv = document.querySelector('.container')
 const startbuttons = document.querySelector('.startbuttons')
@@ -172,7 +173,7 @@ function loadQuestion() {
   flipmotion()
 }
 
-
+//Funktion för att flippa korten 360* vid varje fråga
 function flipmotion() {
   const cards = document.querySelectorAll('.card');
   cards.forEach(card => {
@@ -181,7 +182,7 @@ function flipmotion() {
   });
 }
 
-
+//Kollar om svaret är korrekt, returnerar true/false
 function checkAnswer(x) {
   if (question['answers'][x]['correct'] === 'true') {
       return true
@@ -190,6 +191,7 @@ function checkAnswer(x) {
   }
 }
 
+//Körs vid ett korrekt svar, i är svarsobjektet, x är frågans nummer i progressbaren
 function correctAnswer(i, x) {
   clearInterval(timerInterval)
   disableAnswerButtons()
@@ -200,7 +202,7 @@ function correctAnswer(i, x) {
   progressIcons[x].classList.add('correct')
   progressIcons[x].prepend(correctIconSvg.cloneNode(true))
 
-
+  //Hanterar nästa fråga 3 sekunder efter svar
   setTimeout(() => {
       loadNextQuestion()
       enableAnswerButtons()
@@ -218,6 +220,7 @@ function correctAnswer(i, x) {
   playCorrectSound();
 }
 
+//Körs vid ett inkorrekt svar, i är svarsobjektet, x är frågans nummer i progressbaren
 function incorrectAnswer(i, x) {
   clearInterval(timerInterval)
   disableAnswerButtons()
@@ -228,6 +231,7 @@ function incorrectAnswer(i, x) {
   progressIcons[x].classList.add('incorrect')
   progressIcons[x].prepend(incorrectIconSvg.cloneNode(true))
 
+  //Hanterar nästa fråga 3 sekunder efter svar
   setTimeout(() => {
       loadNextQuestion()
       enableAnswerButtons()
@@ -245,6 +249,7 @@ function incorrectAnswer(i, x) {
   playIncorrectSound();
 }
 
+//Ljud funktioner
 function playCorrectSound() {
   let correctaudio = new Audio("sounds/correct.mp3");
   correctaudio.play();
@@ -281,6 +286,7 @@ function playIntroSound() {
   timeoutaudio.play();
 }
 
+//Sköter timern
 function startTimer() {
   let timeRemaining = maxQuestionTime / 1000;
 
@@ -311,6 +317,7 @@ function startTimer() {
 
 }
 
+//Körs då användare inte svarat inom tidsramen
 function handleTimeOut(x) {
   //console.log('timed out')
   disableAnswerButtons()
@@ -322,6 +329,7 @@ function handleTimeOut(x) {
   progressIcons[x].classList.add('incorrect')
   progressIcons[x].prepend(timeoutIconSvg.cloneNode(true))
 
+  //Hanterar nästa fråga 3 sekunder efter timeout
   setTimeout(() => {
       loadNextQuestion()
       enableAnswerButtons()
@@ -342,6 +350,7 @@ function handleTimeOut(x) {
   }, 3000)
 }
 
+//Sköter svarsalternativens klickbarhet
 function disableAnswerButtons() {
   answers.forEach(button => {
       button.disabled = true;
@@ -354,27 +363,29 @@ function enableAnswerButtons() {
   });
 }
 
+//Hanterar allt efter att spelet är slut
 function Showscore() {
   questionText.innerHTML = "Du har fått " + Score + " av " + totalQuestionsAmount + " poäng!"
   cardDiv.remove()
   qNumber.classList.add('hidden')
   timerElem.classList.add('hidden')
+
+  //skapar 2 element
   const playAgainButton = document.createElement('button');
-  //skapar 3 element
   playAgainButton.classList.add('startbutton');
+
   const playAgaintext = document.createElement('h1');
   playAgaintext.textContent = 'Spela igen';
   playAgaintext.classList.add('startbutton-text')
   playAgainButton.appendChild(playAgaintext)
+  
   startbuttons.style.display = "flex";
   startbuttons.appendChild(playAgainButton);
+  
   playAgainButton.addEventListener('click', () => {
       questionText.innerHTML = '';
       location.reload()
-
   });
-
-
 }
 
 // Ikoners SVG
